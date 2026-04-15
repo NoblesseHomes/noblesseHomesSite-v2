@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #dd9933;
+  --color-primary-dark: #c8862d;
+  --color-primary-light: #e8b55f;
+  --color-accent-navy: #1a1f2e;
+  --color-accent-cream: #fafaf8;
+  --color-accent-warm-gray: #f5f5f3;
+  --color-text: #0f1727d9;
+  --color-text-dark: #0f1727;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-accent-cream);
+  scrollbar-gutter: stable;
+}
+.font-heading {
+  font-family: 'Inter';
+}
+/* Premium shadows with golden tint */
+.shadow-premium {
+  box-shadow:
+    0 4px 20px rgba(221, 153, 51, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.shadow-premium-lg {
+  box-shadow:
+    0 10px 40px rgba(221, 153, 51, 0.12),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+}
+/* Subtle golden glow for icons */
+.icon-glow {
+  filter: drop-shadow(0 2px 8px rgba(221, 153, 51, 0.15));
+}
