@@ -33,7 +33,7 @@ export default async function RootLayout({ children, params }) {
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>
           <Header />
-          {children}
+          <main>{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>
