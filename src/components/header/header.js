@@ -1,8 +1,9 @@
 'use client';
 
-import { Link } from '@/i18n/navigation';
+import { Link, usePathname, useRouter } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
 import { ChevronDownIcon, LogInIcon, PhoneIcon, UserPlusIcon, XIcon } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import logo from '@/asset/header/logo.svg';
 
@@ -19,23 +20,32 @@ const languages = [
     flag: 'cz',
     short: 'EN',
   },
-  {
-    code: 'ru',
-    label: 'Русский',
-    flag: 'cz',
-    short: 'RU',
-  },
-  {
-    code: 'uk',
-    label: 'Українська',
-    flag: 'cz',
-    short: 'UA',
-  },
+  // {
+  //   code: 'ru',
+  //   label: 'Русский',
+  //   flag: 'cz',
+  //   short: 'RU',
+  // },
+  // {
+  //   code: 'uk',
+  //   label: 'Українська',
+  //   flag: 'cz',
+  //   short: 'UA',
+  // },
 ];
 
 function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState(languages[0]);
+
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const locale = useLocale();
+
+  const currentLang = useMemo(() => {
+    return languages.find((lang) => lang.code === locale) ?? languages[0];
+  }, [locale]);
+
   const dropdownRef = useRef(null);
   useEffect(() => {
     function handleClickOutside(event) {
@@ -46,6 +56,14 @@ function LanguageSwitcher() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  function handleLanguage(nextLocale) {
+    setIsOpen(false);
+
+    if (nextLocale === locale) return;
+
+    router.replace(pathname, { locale: nextLocale });
+  }
   return (
     <div ref={dropdownRef} className="relative">
       <button
@@ -70,8 +88,7 @@ function LanguageSwitcher() {
             <button
               key={lang.code}
               onClick={() => {
-                setCurrentLang(lang);
-                setIsOpen(false);
+                handleLanguage(lang.code);
               }}
               className={`w-full grid grid-cols-[24px_1fr_12px] items-center gap-3 px-4 py-2.5 text-left transition-colors duration-150 ${
                 currentLang.code === lang.code
