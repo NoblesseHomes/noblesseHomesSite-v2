@@ -1,5 +1,8 @@
 import { Link } from '@/i18n/navigation';
 import { MailIcon, PhoneIcon, MapPinIcon, HomeIcon, Import } from 'lucide-react';
+
+const dataYear = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="w-full bg-accent-cream border-t border-black/5">
@@ -93,7 +96,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-black/5 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
-          <p className="text-text/50 text-xs">© 2024 NoblesseHomes. Všechna práva vyhrazena.</p>
+          <p className="text-text/50 text-xs">{`© ${dataYear} NoblesseHomes. Všechna práva vyhrazena.`}</p>
           <div className="flex gap-5 text-xs">
             <a href="#" className="text-text/50 hover:text-primary transition-colors duration-200">
               Ochrana osobních údajů
