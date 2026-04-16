@@ -45,7 +45,7 @@ export function ManagementModal({ isOpen, onClose }) {
               </h3>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-accent-cream rounded-lg transition-colors"
+                className="p-2 hover:bg-accent-cream rounded-lg transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 <XIcon className="w-6 h-6 text-accent-navy/60" strokeWidth={2.5} />

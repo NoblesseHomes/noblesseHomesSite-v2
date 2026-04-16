@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation';
 import { PropertyCard } from '@/components/propertyCard/card';
 import { properties } from '@/properties';
 import { CTASection } from '@/components/ctaSection/section';
+import { PartnersSection } from '@/components/partnersSection';
 
 export default async function MainPage() {
   const t = await getTranslations('mainPage');
@@ -59,6 +60,7 @@ export default async function MainPage() {
         </div>
       </section>
       <CTASection />
+      <PartnersSection />
     </>
   );
 }
