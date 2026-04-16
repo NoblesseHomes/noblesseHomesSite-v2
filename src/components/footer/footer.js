@@ -97,7 +97,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-black/5 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
           <p className="text-text/50 text-xs">{`© ${dataYear} NoblesseHomes. Všechna práva vyhrazena.`}</p>
-          <div className="flex gap-5 text-xs">
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs">
             <a href="#" className="text-text/50 hover:text-primary transition-colors duration-200">
               Ochrana osobních údajů
             </a>

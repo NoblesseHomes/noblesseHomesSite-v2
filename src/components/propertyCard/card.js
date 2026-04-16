@@ -87,20 +87,20 @@ export function PropertyCard({
         </div>
 
         {/* Specs row */}
-        <div className="flex items-center gap-4 py-3 border-t border-black/5 mb-4">
-          <div className="flex items-center gap-1.5">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3 border-t border-black/5 mb-4">
+          <div className="flex items-center gap-1.5 min-w-0">
             <RulerIcon className="w-4 h-4 text-text/40" strokeWidth={2} />
             <span className="text-sm font-medium text-text">{area}</span>
           </div>
-          <div className="w-px h-4 bg-black/10" />
-          <div className="flex items-center gap-1.5">
+          <div className="hidden sm:block w-px h-4 bg-black/10" />
+          <div className="flex items-center gap-1.5 min-w-0">
             <LayoutIcon className="w-4 h-4 text-text/40" strokeWidth={2} />
             <span className="text-sm font-medium text-text">{layout}</span>
           </div>
           {floor && (
             <>
-              <div className="w-px h-4 bg-black/10" />
-              <div className="flex items-center gap-1.5">
+              <div className="hidden sm:block w-px h-4 bg-black/10" />
+              <div className="flex items-center gap-1.5 min-w-0">
                 <BuildingIcon className="w-4 h-4 text-text/40" strokeWidth={2} />
                 <span className="text-sm font-medium text-text">{floor}</span>
               </div>
