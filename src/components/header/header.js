@@ -7,17 +7,20 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import logo from '@/asset/header/logo.svg';
 
+import cz from '@/asset/flags/cz.svg';
+import en from '@/asset/flags/en.svg';
+
 const languages = [
   {
     code: 'cs',
     label: 'Čeština',
-    flag: 'cz',
+    flag: cz,
     short: 'CZ',
   },
   {
     code: 'en',
     label: 'English',
-    flag: 'cz',
+    flag: en,
     short: 'EN',
   },
   // {
@@ -90,13 +93,21 @@ function LanguageSwitcher() {
               onClick={() => {
                 handleLanguage(lang.code);
               }}
-              className={`w-full grid grid-cols-[24px_1fr_12px] items-center gap-3 px-4 py-2.5 text-left transition-colors duration-150 ${
+              className={`w-full grid grid-cols-[32px_1fr_12px] items-center gap-3 px-4 py-2.5 text-left transition-colors duration-150 cursor-pointer ${
                 currentLang.code === lang.code
                   ? 'bg-accent-navy/8 text-accent-navy'
                   : 'hover:bg-accent-cream text-text'
               }`}
             >
-              <span className="text-lg leading-none">{lang.flag}</span>
+              <span className="inline-flex h-5 w-7 items-center justify-center overflow-hidden rounded-sm border border-black/10 bg-white">
+                <Image
+                  src={lang.flag}
+                  alt={`${lang.label} flag`}
+                  width={32}
+                  height={20}
+                  className="h-full w-full object-cover"
+                />
+              </span>
               <span className="text-sm font-medium truncate whitespace-nowrap">{lang.label}</span>
               <span
                 className={`w-1.5 h-1.5 rounded-full bg-accent-navy justify-self-end transition-opacity ${
