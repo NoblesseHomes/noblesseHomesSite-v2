@@ -4,6 +4,7 @@ import { ArrowRightIcon } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { PropertyCard } from '@/components/propertyCard/card';
 import { properties } from '@/properties';
+import { CTASection } from '@/components/ctaSection/section';
 
 export default async function MainPage() {
   const t = await getTranslations('mainPage');
@@ -57,6 +58,7 @@ export default async function MainPage() {
           </div>
         </div>
       </section>
+      <CTASection />
     </>
   );
 }
