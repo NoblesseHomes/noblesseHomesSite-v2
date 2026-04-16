@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import './globals.css';
 
 import Header from '@/components/header/header';
+import Footer from '@/components/footer/footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,6 +35,7 @@ export default async function RootLayout({ children, params }) {
         <NextIntlClientProvider>
           <Header />
           <main>{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
