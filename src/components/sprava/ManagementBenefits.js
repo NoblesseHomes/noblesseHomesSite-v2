@@ -23,15 +23,15 @@ export function ManagementBenefits() {
             {/* Top content */}
             <div>
               {/* Tag */}
-              <div className="inline-flex items-center bg-white/15 text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border border-white/20 mb-6">
+              <div className="inline-flex items-center bg-footer-text/12 text-footer-text text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border border-footer-text/20 mb-6">
                 Náš závazek
               </div>
 
-              <h3 className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl text-white mb-4 leading-tight">
+              <h3 className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl text-footer-text mb-4 leading-tight">
                 Váš byt je v bezpečných rukou
               </h3>
 
-              <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8">
+              <p className="text-footer-text-muted text-base sm:text-lg leading-relaxed mb-8">
                 Přebíráme každodenní provoz pronajatého bytu — od komunikace s nájemníkem přes
                 platby až po koordinaci oprav. Vy dostáváte pravidelný přehled.
               </p>
@@ -40,28 +40,28 @@ export function ManagementBenefits() {
               <ul className="space-y-3 mb-10">
                 <li className="flex items-center gap-3">
                   <CheckCircleIcon
-                    className="w-5 h-5 text-white/70 shrink-0"
+                    className="w-5 h-5 text-footer-text-muted shrink-0"
                     strokeWidth={2.5}
                   />
-                  <span className="text-white/90 font-medium">
+                  <span className="text-footer-text font-medium">
                     Komunikace s nájemníkem — jedno kontaktní místo
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircleIcon
-                    className="w-5 h-5 text-white/70 shrink-0"
+                    className="w-5 h-5 text-footer-text-muted shrink-0"
                     strokeWidth={2.5}
                   />
-                  <span className="text-white/90 font-medium">
+                  <span className="text-footer-text font-medium">
                     Kontrola plateb a řešení nedoplatků
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircleIcon
-                    className="w-5 h-5 text-white/70 shrink-0"
+                    className="w-5 h-5 text-footer-text-muted shrink-0"
                     strokeWidth={2.5}
                   />
-                  <span className="text-white/90 font-medium">
+                  <span className="text-footer-text font-medium">
                     Koordinace oprav a údržby v dohodnutém limitu
                   </span>
                 </li>
@@ -69,25 +69,29 @@ export function ManagementBenefits() {
             </div>
 
             {/* Bottom stat bar */}
-            <div className="border-t border-white/10 pt-6">
-              <div className="grid grid-cols-3 divide-x divide-white/10">
+            <div className="border-t border-footer-text/10 pt-6">
+              <div className="grid grid-cols-3 divide-x divide-footer-text/10">
                 <div className="text-center px-4 first:pl-0 last:pr-0">
-                  <div className="font-heading font-extrabold text-2xl sm:text-3xl text-white mb-1">
+                  <div className="font-heading font-extrabold text-2xl sm:text-3xl text-footer-text mb-1">
                     24h
                   </div>
-                  <div className="text-xs text-white/50 leading-snug">Reakce na požadavky</div>
+                  <div className="text-xs text-footer-text-muted leading-snug">
+                    Reakce na požadavky
+                  </div>
                 </div>
                 <div className="text-center px-4">
-                  <div className="font-heading font-extrabold text-2xl sm:text-3xl text-white mb-1">
+                  <div className="font-heading font-extrabold text-2xl sm:text-3xl text-footer-text mb-1">
                     0
                   </div>
-                  <div className="text-xs text-white/50 leading-snug">Neuhrazených nájmů</div>
+                  <div className="text-xs text-footer-text-muted leading-snug">
+                    Neuhrazených nájmů
+                  </div>
                 </div>
                 <div className="text-center px-4 first:pl-0 last:pr-0">
-                  <div className="font-heading font-extrabold text-2xl sm:text-3xl text-white mb-1">
+                  <div className="font-heading font-extrabold text-2xl sm:text-3xl text-footer-text mb-1">
                     100%
                   </div>
-                  <div className="text-xs text-white/50 leading-snug">Transparentnost</div>
+                  <div className="text-xs text-footer-text-muted leading-snug">Transparentnost</div>
                 </div>
               </div>
             </div>

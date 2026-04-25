@@ -28,7 +28,7 @@ export function ManagementHero() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center px-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-primary text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl hover:bg-primary-dark transition-all duration-300 shadow-premium-lg hover:shadow-[0_12px_48px_rgba(221,153,51,0.2)] text-center"
+                className="bg-primary text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl hover:bg-primary-dark transition-all duration-300 shadow-premium-lg text-center"
               >
                 Chci předat správu
               </button>

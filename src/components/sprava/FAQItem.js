@@ -16,7 +16,7 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
           className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-accent-navy rotate-180' : 'bg-accent-navy/8'}`}
         >
           <ChevronDownIcon
-            className={`w-5 h-5 transition-colors duration-300 ${isOpen ? 'text-white' : 'text-accent-navy'}`}
+            className={`w-5 h-5 transition-colors duration-300 ${isOpen ? 'text-footer-text' : 'text-accent-navy'}`}
             strokeWidth={2.5}
           />
         </div>

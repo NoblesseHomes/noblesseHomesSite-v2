@@ -64,7 +64,7 @@ export function ManagementProcess() {
                   className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start bg-accent-cream rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-black/5 hover:border-accent-navy/15 transition-all duration-300"
                 >
                   <div className="flex items-center gap-4 sm:gap-6 shrink-0">
-                    <div className="bg-accent-navy text-white font-bold text-2xl sm:text-3xl w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center shadow-premium">
+                    <div className="bg-accent-navy text-footer-text font-bold text-2xl sm:text-3xl w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center shadow-premium">
                       {step.number}
                     </div>
                     <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-black/5">
@@ -87,7 +87,7 @@ export function ManagementProcess() {
           <div className="mt-12 sm:mt-16 text-center">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-primary text-white font-bold text-base sm:text-lg px-10 sm:px-12 py-4 sm:py-5 rounded-2xl hover:bg-primary-dark transition-all duration-300 shadow-premium-lg hover:shadow-[0_12px_48px_rgba(221,153,51,0.2)]"
+              className="bg-primary text-white font-bold text-base sm:text-lg px-10 sm:px-12 py-4 sm:py-5 rounded-2xl hover:bg-primary-dark transition-all duration-300 shadow-premium-lg"
             >
               Chci předat správu
             </button>
