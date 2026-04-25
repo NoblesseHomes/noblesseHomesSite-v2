@@ -176,10 +176,10 @@ export default function Header() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-navy transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link
-                href="/nabidka-bytu"
+                href="/#kontakt"
                 className="text-text font-medium hover:text-accent-navy transition-colors duration-200 relative group whitespace-nowrap"
               >
-                Nabídka bytů
+                Kontakt
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-navy transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link
@@ -292,12 +292,12 @@ export default function Header() {
                   </Link>
 
                   <Link
-                    href="/nabidka-bytu"
+                    href="/#kontakt"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block py-4 px-4 rounded-xl hover:bg-accent-cream transition-colors border border-transparent hover:border-black/5"
                   >
-                    <div className="font-bold text-lg text-accent-navy mb-1">Nabídka bytů</div>
-                    <div className="text-sm text-text/60">Aktuální nabídka nemovitostí</div>
+                    <div className="font-bold text-lg text-accent-navy mb-1">Kontakt</div>
+                    <div className="text-sm text-text/60">Ozvěte se nám a domluvte si konzultaci</div>
                   </Link>
 
                   <Link
