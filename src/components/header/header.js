@@ -2,10 +2,10 @@
 
 import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
-import { ChevronDownIcon, LogInIcon, PhoneIcon, UserPlusIcon, XIcon } from 'lucide-react';
+import { ChevronDownIcon, PhoneIcon, XIcon } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
-import logo from '@/asset/header/logo.svg';
+import logo from '@/asset/header/logo_new.svg';
 
 import cz from '@/asset/flags/cz.svg';
 import en from '@/asset/flags/en.svg';
@@ -191,20 +191,9 @@ export default function Header() {
               </Link>
             </nav>
 
-            {/* Col 3: Language + Auth — all elements h-9 for consistency */}
-            <div className="flex items-center gap-2">
+            {/* Col 3: Language */}
+            <div className="flex items-center">
               <LanguageSwitcher />
-              <div className="w-px h-5 bg-black/10 mx-0.5" />
-              <button
-                className="h-9 w-9 flex items-center justify-center text-accent-navy/70 border border-black/10 rounded-lg hover:border-accent-navy hover:text-accent-navy hover:bg-accent-cream transition-all duration-200 bg-white cursor-pointer"
-                aria-label="Přihlásit se"
-                title="Přihlásit se"
-              >
-                <LogInIcon className="w-4 h-4" strokeWidth={2.5} />
-              </button>
-              <button className="h-9 flex items-center gap-1.5 px-4 text-sm font-bold text-white bg-primary rounded-lg hover:bg-primary-dark transition-all duration-200 shadow-sm hover:shadow-premium cursor-pointer">
-                Registrace
-              </button>
             </div>
           </div>
 
@@ -323,18 +312,7 @@ export default function Header() {
               </nav>
 
               {/* Fixed CTA at bottom */}
-              <div className="p-6 border-t border-black/5 bg-accent-cream space-y-2.5">
-                {/* Auth buttons — mobile */}
-                <div className="flex gap-2">
-                  <button className="flex-1 flex items-center justify-center gap-1.5 px-4 py-3 text-sm font-bold text-accent-navy bg-white border-2 border-black/10 rounded-xl hover:border-black/20 transition-all duration-200">
-                    <LogInIcon className="w-4 h-4" strokeWidth={2} />
-                    Přihlásit se
-                  </button>
-                  <button className="flex-1 flex items-center justify-center gap-1.5 px-4 py-3 text-sm font-bold text-white bg-primary rounded-xl hover:bg-primary-dark transition-all duration-200 shadow-premium">
-                    <UserPlusIcon className="w-4 h-4" strokeWidth={2} />
-                    Registrace
-                  </button>
-                </div>
+              <div className="p-6 border-t border-black/5 bg-accent-cream">
                 <a
                   href="tel:+420123456789"
                   className="flex items-center justify-center gap-2 w-full text-accent-navy font-bold text-center px-6 py-3.5 rounded-xl border-2 border-accent-navy/15 hover:border-accent-navy/30 hover:text-accent-navy transition-all duration-200 bg-white"

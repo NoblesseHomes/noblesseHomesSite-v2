@@ -45,14 +45,14 @@ export function Hero() {
         <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-12 lg:gap-8">
           {/* Left Column: Text & CTA */}
           <div className="w-full lg:w-1/2">
-            <div className="bg-accent-navy/50 backdrop-blur-sm rounded-3xl p-8 sm:p-10 lg:p-12 border border-white/10 text-center lg:text-left">
-              <p className="text-white/60 font-bold text-sm sm:text-base tracking-widest uppercase mb-4">
+            <div className="bg-accent-navy/50 backdrop-blur-sm rounded-3xl p-8 sm:p-10 lg:p-12 border border-footer-text/15 text-center lg:text-left">
+              <p className="text-footer-text-muted font-bold text-sm sm:text-base tracking-widest uppercase mb-4">
                 NoblesseHomes
               </p>
-              <h1 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-5 leading-[1.15]">
+              <h1 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-footer-text mb-5 leading-[1.15]">
                 Realitní kancelář a správa nemovitostí v&nbsp;Praze
               </h1>
-              <p className="text-base sm:text-lg text-white/75 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg text-footer-text-muted mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Pronájem, správa a kompletní servis pro majitele nemovitostí. Profesionálně,
                 transparentně a s&nbsp;osobním přístupem.
               </p>
@@ -67,7 +67,7 @@ export function Hero() {
                 </a>
                 <Link
                   href="/nabidka-bytu"
-                  className="inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-sm text-white font-bold text-base px-7 py-3.5 rounded-xl border border-white/20 hover:bg-white/25 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 bg-footer-text/12 backdrop-blur-sm text-footer-text font-bold text-base px-7 py-3.5 rounded-xl border border-footer-text/25 hover:bg-footer-text/20 transition-all duration-300"
                 >
                   Nabídka bytů
                   <ArrowRightIcon className="w-4 h-4" strokeWidth={2.5} />
@@ -89,7 +89,7 @@ export function Hero() {
                     <div className="flex items-center gap-4 sm:gap-5">
                       <div className="shrink-0 bg-accent-navy/8 p-3.5 rounded-xl border border-accent-navy/10 group-hover:bg-accent-navy group-hover:border-accent-navy transition-colors duration-300">
                         <Icon
-                          className="w-6 h-6 text-accent-navy group-hover:text-[#e0e0e0] transition-colors duration-300"
+                          className="w-6 h-6 text-accent-navy group-hover:text-footer-text transition-colors duration-300"
                           strokeWidth={2.5}
                         />
                       </div>
