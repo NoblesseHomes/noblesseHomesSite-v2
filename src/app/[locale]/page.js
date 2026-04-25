@@ -4,13 +4,12 @@ import { ServicesSection } from '@/components/servicesSection';
 
 import { PartnersSection } from '@/components/partnersSection';
 
-export default function MainPage() {
+export default async function MainPage({ params }) {
   return (
     <>
       <Hero />
       <StatsStrip />
       <ServicesSection />
-
       <PartnersSection />
     </>
   );
