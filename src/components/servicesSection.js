@@ -1,7 +1,5 @@
 import { Link } from '@/i18n/navigation';
-import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
-import bg from '@/asset/header/prague-bg.webp';
 import pronajem from '@/asset/services/pronajem.jpg';
 import sprava from '@/asset/services/sprava.jpg';
 import spoluprace from '@/asset/services/spoluprace.jpg';
@@ -35,7 +33,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="w-full bg-accent-cream border-b border-black/5 py-14 sm:py-18 md:py-22">
+    <section id="sluzby" className="w-full bg-accent-cream border-b border-black/5 py-14 sm:py-18 md:py-22">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-accent-navy leading-tight">
