@@ -1,7 +1,7 @@
 import { WrenchIcon, ShieldCheckIcon, BarChart2Icon, CheckCircleIcon } from 'lucide-react';
 export function ManagementBenefits() {
   return (
-    <section className="w-full bg-white py-16 sm:py-20 md:py-28 border-b border-black/5">
+    <section className="w-full bg-accent-cream py-16 sm:py-20 md:py-28 border-b border-black/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <div className="text-center mb-12 sm:mb-16">

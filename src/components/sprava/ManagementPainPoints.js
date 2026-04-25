@@ -24,7 +24,7 @@ export function ManagementPainPoints() {
     },
   ];
   return (
-    <section className="w-full bg-white py-16 sm:py-20 md:py-28 border-b border-black/5">
+    <section className="w-full bg-accent-cream py-16 sm:py-20 md:py-28 border-b border-black/5">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
@@ -37,9 +37,7 @@ export function ManagementPainPoints() {
         {/* Column headers — desktop only */}
         <div className="hidden sm:grid sm:grid-cols-2 gap-6 sm:gap-8 mb-4 px-2">
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center justify-center rounded-full bg-problem-bg border border-problem-accent/30 p-1">
-              <XCircleIcon className="w-4 h-4 text-problem-accent" strokeWidth={2.5} />
-            </span>
+            <XCircleIcon className="w-5 h-5 text-problem-accent" strokeWidth={2.5} />
             <span className="font-heading font-bold text-sm uppercase tracking-wider text-text/50">
               Problém
             </span>
@@ -61,9 +59,10 @@ export function ManagementPainPoints() {
             >
               {/* Problem */}
               <div className="flex items-start gap-3 bg-problem-bg/60 px-5 sm:px-6 py-4 sm:py-5 border-b sm:border-b-0 sm:border-r border-black/5">
-                <span className="inline-flex items-center justify-center rounded-full bg-problem-bg border border-problem-accent/30 p-1 shrink-0 mt-0.5">
-                  <XCircleIcon className="w-4 h-4 text-problem-accent" strokeWidth={2.5} />
-                </span>
+                <XCircleIcon
+                  className="w-5 h-5 text-problem-accent shrink-0 mt-0.5"
+                  strokeWidth={2.5}
+                />
                 <span className="font-semibold text-sm sm:text-base text-accent-navy leading-snug">
                   {pair.problem}
                 </span>
