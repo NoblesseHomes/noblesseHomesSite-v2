@@ -64,7 +64,7 @@ export function ManagementProcess() {
                   className="bg-accent-cream hover:border-accent-navy/15 flex flex-col items-start gap-4 rounded-2xl border border-black/5 p-6 transition-all duration-300 sm:flex-row sm:gap-6 sm:rounded-3xl sm:p-8"
                 >
                   <div className="flex shrink-0 items-center gap-4 sm:gap-6">
-                    <div className="bg-accent-navy text-footer-text shadow-premium flex h-16 w-16 items-center justify-center rounded-2xl text-2xl font-bold sm:h-20 sm:w-20 sm:text-3xl">
+                    <div className="bg-accent-navy text-text-main shadow-premium flex h-16 w-16 items-center justify-center rounded-2xl text-2xl font-bold sm:h-20 sm:w-20 sm:text-3xl">
                       {step.number}
                     </div>
                     <div className="rounded-xl border border-black/5 bg-white p-3 sm:rounded-2xl sm:p-4">
@@ -99,3 +99,4 @@ export function ManagementProcess() {
     </>
   );
 }
+

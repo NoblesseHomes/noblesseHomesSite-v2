@@ -72,10 +72,10 @@ export function ServicesSection() {
                     service.wide ? 'md:min-h-85' : ''
                   }`}
                 >
-                  <h3 className="font-heading text-footer-text mb-3 text-2xl font-bold sm:text-3xl">
+                  <h3 className="font-heading text-text-main mb-3 text-2xl font-bold sm:text-3xl">
                     {service.title}
                   </h3>
-                  <p className="text-footer-text-muted max-w-2xl text-sm leading-relaxed sm:text-base">
+                  <p className="text-text-muted max-w-2xl text-sm leading-relaxed sm:text-base">
                     {service.description}
                   </p>
                 </div>
@@ -87,3 +87,4 @@ export function ServicesSection() {
     </section>
   );
 }
+

@@ -16,7 +16,7 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${isOpen ? 'bg-accent-navy rotate-180' : 'bg-accent-navy/8'} cursor-pointer`}
         >
           <ChevronDownIcon
-            className={`h-5 w-5 transition-colors duration-300 ${isOpen ? 'text-footer-text' : 'text-accent-navy'}`}
+            className={`h-5 w-5 transition-colors duration-300 ${isOpen ? 'text-text-main' : 'text-accent-navy'}`}
             strokeWidth={2.5}
           />
         </div>
@@ -89,3 +89,4 @@ export function ManagementFAQ() {
     </section>
   );
 }
+

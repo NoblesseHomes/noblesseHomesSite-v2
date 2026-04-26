@@ -11,14 +11,14 @@
   --color-text-dark: #0f1727;
   --color-problem-bg: #fef2f2;
   --color-problem-accent: #f87171;
-  --color-footer-text: #f2f5fb;
-  --color-footer-text-muted: #d8e0ee;
+  --color-text-main: #f2f5fb;
+  --color-text-muted: #d8e0ee;
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-text);
+  color: var(--color-text-main);
   background-color: var(--color-accent-cream);
 }
 .font-heading {
@@ -39,3 +39,4 @@ body {
 .icon-glow {
   filter: drop-shadow(0 2px 8px rgba(221, 153, 51, 0.15));
 }
+

@@ -9,7 +9,7 @@ export default function Footer() {
       <div>
         <div className="mx-auto max-w-7xl border-b border-white/10 px-4 py-8 sm:px-6 sm:py-10">
           <div className="flex flex-col items-center gap-5 text-center">
-            <p className="text-footer-text max-w-3xl text-2xl leading-snug font-semibold sm:text-3xl">
+            <p className="text-text-main max-w-3xl text-2xl leading-snug font-semibold sm:text-3xl">
               Hledáte realitní kancelář nebo správu nemovitosti, které můžete opravdu důvěřovat?
             </p>
             <a
@@ -27,25 +27,25 @@ export default function Footer() {
           <div>
             <div className="mb-3 flex items-center gap-2.5">
               <div className="rounded-xl border border-white/15 bg-white/10 p-2">
-                <HomeIcon className="text-footer-text h-5 w-5" strokeWidth={2.5} />
+                <HomeIcon className="text-text-main h-5 w-5" strokeWidth={2.5} />
               </div>
-              <span className="text-footer-text text-lg font-bold">NoblesseHomes</span>
+              <span className="text-text-main text-lg font-bold">NoblesseHomes</span>
             </div>
-            <p className="text-footer-text-muted text-sm leading-relaxed">
+            <p className="text-text-muted text-sm leading-relaxed">
               Profesionální správa a pronájem nemovitostí v Praze a okolí.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-footer-text mb-3 text-sm font-bold tracking-wider uppercase">
+            <h4 className="text-text-main mb-3 text-sm font-bold tracking-wider uppercase">
               Služby
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/sprava"
-                  className="text-footer-text-muted hover:text-footer-text text-sm transition-colors duration-200"
+                  className="text-text-muted hover:text-text-main text-sm transition-colors duration-200"
                 >
                   Správa nemovitostí
                 </Link>
@@ -53,7 +53,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#pronajem"
-                  className="text-footer-text-muted hover:text-footer-text text-sm transition-colors duration-200"
+                  className="text-text-muted hover:text-text-main text-sm transition-colors duration-200"
                 >
                   Pronájem bytů
                 </a>
@@ -61,7 +61,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#nabidka"
-                  className="text-footer-text-muted hover:text-footer-text text-sm transition-colors duration-200"
+                  className="text-text-muted hover:text-text-main text-sm transition-colors duration-200"
                 >
                   Nabídka bytů
                 </a>
@@ -69,7 +69,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#spoluprace"
-                  className="text-footer-text-muted hover:text-footer-text text-sm transition-colors duration-200"
+                  className="text-text-muted hover:text-text-main text-sm transition-colors duration-200"
                 >
                   Spolupráce pro partnery
                 </a>
@@ -79,31 +79,31 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-footer-text mb-3 text-sm font-bold tracking-wider uppercase">
+            <h4 className="text-text-main mb-3 text-sm font-bold tracking-wider uppercase">
               Kontakt
             </h4>
             <ul className="space-y-2.5">
               <li className="flex items-center gap-2.5">
-                <PhoneIcon className="text-footer-text-muted h-4 w-4 shrink-0" />
+                <PhoneIcon className="text-text-muted h-4 w-4 shrink-0" />
                 <a
                   href="tel:+420735080191"
-                  className="text-footer-text-muted hover:text-footer-text text-sm transition-colors duration-200"
+                  className="text-text-muted hover:text-text-main text-sm transition-colors duration-200"
                 >
                   +420 735 080 191
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <MailIcon className="text-footer-text-muted h-4 w-4 shrink-0" />
+                <MailIcon className="text-text-muted h-4 w-4 shrink-0" />
                 <a
                   href="mailto:info@noblesse-homes.cz"
-                  className="text-footer-text-muted hover:text-footer-text text-sm transition-colors duration-200"
+                  className="text-text-muted hover:text-text-main text-sm transition-colors duration-200"
                 >
                   info@noblessehomes.cz
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPinIcon className="text-footer-text-muted mt-0.5 h-4 w-4 shrink-0" />
-                <span className="text-footer-text-muted text-sm">
+                <MapPinIcon className="text-text-muted mt-0.5 h-4 w-4 shrink-0" />
+                <span className="text-text-muted text-sm">
                   Přístavní 531/24, Praha 7-Holešovice
                 </span>
               </li>
@@ -113,17 +113,17 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-center sm:flex-row sm:text-left">
-          <p className="text-footer-text-muted text-xs">{`© ${dataYear} NoblesseHomes. Všechna práva vyhrazena.`}</p>
+          <p className="text-text-muted text-xs">{`© ${dataYear} NoblesseHomes. Všechna práva vyhrazena.`}</p>
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs">
             <a
               href="#"
-              className="text-footer-text-muted hover:text-footer-text transition-colors duration-200"
+              className="text-text-muted hover:text-text-main transition-colors duration-200"
             >
               Ochrana osobních údajů
             </a>
             <a
               href="#"
-              className="text-footer-text-muted hover:text-footer-text transition-colors duration-200"
+              className="text-text-muted hover:text-text-main transition-colors duration-200"
             >
               Podmínky použití
             </a>
@@ -133,3 +133,4 @@ export default function Footer() {
     </footer>
   );
 }
+

@@ -20,10 +20,10 @@ export function StatsStrip() {
         <div className="grid grid-cols-3 gap-2 sm:gap-8 text-center">
           {stats.map((stat) => (
             <div key={stat.label}>
-              <p className="font-heading text-2xl sm:text-4xl font-extrabold text-footer-text mb-1 sm:mb-2">
+              <p className="font-heading text-2xl sm:text-4xl font-extrabold text-text-main mb-1 sm:mb-2">
                 {stat.value}
               </p>
-              <p className="text-footer-text-muted text-[11px] leading-snug sm:text-base">
+              <p className="text-text-muted text-[11px] leading-snug sm:text-base">
                 {stat.label}
               </p>
             </div>
@@ -33,3 +33,4 @@ export function StatsStrip() {
     </section>
   );
 }
+
