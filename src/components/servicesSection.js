@@ -33,21 +33,24 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="sluzby" className="w-full bg-accent-cream border-b border-black/5 py-14 sm:py-18 md:py-22">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-10">
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-accent-navy leading-tight">
+    <section
+      id="sluzby"
+      className="bg-accent-cream w-full border-b border-black/5 py-14 sm:py-18 md:py-22"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mb-8 text-center sm:mb-10">
+          <h2 className="font-heading text-accent-navy text-3xl leading-tight font-extrabold sm:text-4xl md:text-5xl">
             Naše služby
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
           {services.map((service) => {
             return (
               <Link
                 key={service.title}
                 href={service.href}
-                className={`group relative overflow-hidden rounded-2xl border border-white/15 shadow-premium hover:shadow-premium-lg transition-all duration-300 ${
+                className={`group shadow-premium hover:shadow-premium-lg relative overflow-hidden rounded-2xl border border-white/15 transition-all duration-300 ${
                   service.wide ? 'md:col-span-2' : ''
                 }`}
               >
@@ -56,22 +59,23 @@ export function ServicesSection() {
                     src={service.image}
                     alt={service.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className={`object-cover transition-transform duration-500 group-hover:scale-105 ${service.imagePosition}`}
                     preload={true}
                   />
-                  <div className="absolute inset-0 bg-accent-navy/55" />
-                  <div className="absolute inset-0 bg-linear-to-t from-accent-navy/80 via-accent-navy/40 to-accent-navy/15" />
+                  <div className="bg-accent-navy/55 absolute inset-0" />
+                  <div className="from-accent-navy/80 via-accent-navy/40 to-accent-navy/15 absolute inset-0 bg-linear-to-t" />
                 </div>
 
                 <div
-                  className={`relative z-10 flex flex-col justify-end p-6 sm:p-8 min-h-70 sm:min-h-80 ${
+                  className={`relative z-10 flex min-h-70 flex-col justify-end p-6 sm:min-h-80 sm:p-8 ${
                     service.wide ? 'md:min-h-85' : ''
                   }`}
                 >
-                  <h3 className="font-heading font-bold text-2xl sm:text-3xl text-footer-text mb-3">
+                  <h3 className="font-heading text-footer-text mb-3 text-2xl font-bold sm:text-3xl">
                     {service.title}
                   </h3>
-                  <p className="text-footer-text-muted text-sm sm:text-base leading-relaxed max-w-2xl">
+                  <p className="text-footer-text-muted max-w-2xl text-sm leading-relaxed sm:text-base">
                     {service.description}
                   </p>
                 </div>

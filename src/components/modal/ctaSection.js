@@ -32,34 +32,34 @@ export function ManagementModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Overlay */}
-      <div className="absolute inset-0 bg-accent-navy/50 backdrop-blur-sm" onClick={onClose} />
+      <div className="bg-accent-navy/50 absolute inset-0 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-3xl shadow-premium-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="shadow-premium-lg relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white">
         {!isSubmitted ? (
           <>
             {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-black/5 px-6 sm:px-8 py-6 rounded-t-3xl flex items-center justify-between">
-              <h3 className="font-heading font-bold text-2xl sm:text-3xl text-accent-navy">
+            <div className="sticky top-0 flex items-center justify-between rounded-t-3xl border-b border-black/5 bg-white px-6 py-6 sm:px-8">
+              <h3 className="font-heading text-accent-navy text-2xl font-bold sm:text-3xl">
                 Nezávazná poptávka
               </h3>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-accent-cream rounded-lg transition-colors cursor-pointer"
+                className="hover:bg-accent-cream cursor-pointer rounded-lg p-2 transition-colors"
                 aria-label="Close"
               >
-                <XIcon className="w-6 h-6 text-accent-navy/60" strokeWidth={2.5} />
+                <XIcon className="text-accent-navy/60 h-6 w-6" strokeWidth={2.5} />
               </button>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="px-6 sm:px-8 py-6 sm:py-8">
+            <form onSubmit={handleSubmit} className="px-6 py-6 sm:px-8 sm:py-8">
               <div className="space-y-5">
                 {/* Name */}
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-semibold text-accent-navy/80 mb-2"
+                    className="text-accent-navy/80 mb-2 block text-sm font-semibold"
                   >
                     Jméno a příjmení *
                   </label>
@@ -83,7 +83,7 @@ export function ManagementModal({ isOpen, onClose }) {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-accent-navy/80 mb-2"
+                    className="text-accent-navy/80 mb-2 block text-sm font-semibold"
                   >
                     Email *
                   </label>
@@ -107,7 +107,7 @@ export function ManagementModal({ isOpen, onClose }) {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-semibold text-accent-navy/80 mb-2"
+                    className="text-accent-navy/80 mb-2 block text-sm font-semibold"
                   >
                     Telefon *
                   </label>
@@ -131,7 +131,7 @@ export function ManagementModal({ isOpen, onClose }) {
                 <div>
                   <label
                     htmlFor="propertyType"
-                    className="block text-sm font-semibold text-accent-navy/80 mb-2"
+                    className="text-accent-navy/80 mb-2 block text-sm font-semibold"
                   >
                     Typ nemovitosti *
                   </label>
@@ -145,7 +145,7 @@ export function ManagementModal({ isOpen, onClose }) {
                         propertyType: e.target.value,
                       })
                     }
-                    className={inputClasses}
+                    className={`${inputClasses} cursor-pointer`}
                   >
                     <option value="">Vyberte typ</option>
                     <option value="byt">Byt</option>
@@ -159,7 +159,7 @@ export function ManagementModal({ isOpen, onClose }) {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-semibold text-accent-navy/80 mb-2"
+                    className="text-accent-navy/80 mb-2 block text-sm font-semibold"
                   >
                     Poznámka (nepovinné)
                   </label>
@@ -182,25 +182,25 @@ export function ManagementModal({ isOpen, onClose }) {
               {/* Submit Button — gold stays here as CTA */}
               <button
                 type="submit"
-                className="w-full mt-6 bg-primary text-white font-bold text-lg px-8 py-4 rounded-2xl hover:bg-primary-dark transition-all duration-300 shadow-premium-lg"
+                className="bg-primary hover:bg-primary-dark shadow-premium-lg mt-6 w-full cursor-pointer rounded-2xl px-8 py-4 text-lg font-bold text-white transition-all duration-300"
               >
                 Odeslat poptávku
               </button>
 
-              <p className="text-xs text-text/40 text-center mt-4">
+              <p className="text-text/40 mt-4 text-center text-xs">
                 Odesláním souhlasíte se zpracováním osobních údajů
               </p>
             </form>
           </>
         ) : (
-          <div className="px-6 sm:px-8 py-12 sm:py-16 text-center">
-            <div className="w-20 h-20 rounded-full bg-accent-navy/8 flex items-center justify-center mx-auto mb-6">
-              <CheckCircleIcon className="w-12 h-12 text-accent-navy" strokeWidth={2} />
+          <div className="px-6 py-12 text-center sm:px-8 sm:py-16">
+            <div className="bg-accent-navy/8 mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full">
+              <CheckCircleIcon className="text-accent-navy h-12 w-12" strokeWidth={2} />
             </div>
-            <h3 className="font-heading font-bold text-2xl sm:text-3xl text-accent-navy mb-4">
+            <h3 className="font-heading text-accent-navy mb-4 text-2xl font-bold sm:text-3xl">
               Děkujeme za poptávku!
             </h3>
-            <p className="text-lg text-text/70">Ozveme se vám do 24 hodin.</p>
+            <p className="text-text/70 text-lg">Ozveme se vám do 24 hodin.</p>
           </div>
         )}
       </div>

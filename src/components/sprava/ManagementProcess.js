@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { PhoneIcon, FileTextIcon, HomeIcon, CalendarIcon, BarChartIcon } from 'lucide-react';
-// import { ManagementModal } from './ManagementModal'
+import { ManagementModal } from '@/components/modal/ctaSection';
 export function ManagementProcess() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const steps = [
@@ -44,13 +44,13 @@ export function ManagementProcess() {
   ];
   return (
     <>
-      <section className="w-full bg-white py-16 sm:py-20 md:py-28 border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-accent-navy mb-3 sm:mb-4">
+      <section className="w-full border-b border-black/5 bg-white py-16 sm:py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-12 text-center sm:mb-16">
+            <h2 className="font-heading text-accent-navy mb-3 text-3xl font-extrabold sm:mb-4 sm:text-4xl md:text-5xl">
               Jak správa probíhá v praxi
             </h2>
-            <p className="text-lg sm:text-xl text-text">
+            <p className="text-text text-lg sm:text-xl">
               Od první konzultace po pravidelný reporting — krok za krokem.
             </p>
           </div>
@@ -61,21 +61,21 @@ export function ManagementProcess() {
               return (
                 <div
                   key={index}
-                  className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start bg-accent-cream rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-black/5 hover:border-accent-navy/15 transition-all duration-300"
+                  className="bg-accent-cream hover:border-accent-navy/15 flex flex-col items-start gap-4 rounded-2xl border border-black/5 p-6 transition-all duration-300 sm:flex-row sm:gap-6 sm:rounded-3xl sm:p-8"
                 >
-                  <div className="flex items-center gap-4 sm:gap-6 shrink-0">
-                    <div className="bg-accent-navy text-footer-text font-bold text-2xl sm:text-3xl w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center shadow-premium">
+                  <div className="flex shrink-0 items-center gap-4 sm:gap-6">
+                    <div className="bg-accent-navy text-footer-text shadow-premium flex h-16 w-16 items-center justify-center rounded-2xl text-2xl font-bold sm:h-20 sm:w-20 sm:text-3xl">
                       {step.number}
                     </div>
-                    <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-black/5">
-                      <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-accent-navy" strokeWidth={2} />
+                    <div className="rounded-xl border border-black/5 bg-white p-3 sm:rounded-2xl sm:p-4">
+                      <Icon className="text-accent-navy h-8 w-8 sm:h-10 sm:w-10" strokeWidth={2} />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-heading font-bold text-xl sm:text-2xl text-accent-navy mb-2">
+                    <h3 className="font-heading text-accent-navy mb-2 text-xl font-bold sm:text-2xl">
                       {step.title}
                     </h3>
-                    <p className="text-sm sm:text-base text-text leading-relaxed">
+                    <p className="text-text text-sm leading-relaxed sm:text-base">
                       {step.description}
                     </p>
                   </div>
@@ -84,10 +84,10 @@ export function ManagementProcess() {
             })}
           </div>
 
-          <div className="mt-12 sm:mt-16 text-center">
+          <div className="mt-12 text-center sm:mt-16">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-primary text-white font-bold text-base sm:text-lg px-10 sm:px-12 py-4 sm:py-5 rounded-2xl hover:bg-primary-dark transition-all duration-300 shadow-premium-lg"
+              className="bg-primary hover:bg-primary-dark shadow-premium-lg cursor-pointer rounded-2xl px-10 py-4 text-base font-bold text-white transition-all duration-300 sm:px-12 sm:py-5 sm:text-lg"
             >
               Chci předat správu
             </button>
@@ -95,10 +95,7 @@ export function ManagementProcess() {
         </div>
       </section>
 
-      {/* <ManagementModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      /> */}
+      <ManagementModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

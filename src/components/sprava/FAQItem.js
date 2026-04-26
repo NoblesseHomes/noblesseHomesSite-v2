@@ -4,19 +4,19 @@ import { ChevronDownIcon } from 'lucide-react';
 
 function FAQItem({ question, answer, isOpen, onToggle }) {
   return (
-    <div className="bg-white rounded-2xl sm:rounded-3xl border border-black/5 overflow-hidden transition-all duration-300 hover:border-accent-navy/15 shadow-premium hover:shadow-premium-lg">
+    <div className="hover:border-accent-navy/15 shadow-premium hover:shadow-premium-lg overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-300 sm:rounded-3xl">
       <button
         onClick={onToggle}
-        className="w-full px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between text-left transition-colors duration-200 hover:bg-accent-cream/50"
+        className="hover:bg-accent-cream/50 flex w-full items-center justify-between px-6 py-5 text-left transition-colors duration-200 sm:px-8 sm:py-6"
       >
-        <span className="font-heading font-bold text-lg sm:text-xl text-accent-navy pr-6 sm:pr-8">
+        <span className="font-heading text-accent-navy pr-6 text-lg font-bold sm:pr-8 sm:text-xl">
           {question}
         </span>
         <div
-          className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-accent-navy rotate-180' : 'bg-accent-navy/8'}`}
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${isOpen ? 'bg-accent-navy rotate-180' : 'bg-accent-navy/8'} cursor-pointer`}
         >
           <ChevronDownIcon
-            className={`w-5 h-5 transition-colors duration-300 ${isOpen ? 'text-footer-text' : 'text-accent-navy'}`}
+            className={`h-5 w-5 transition-colors duration-300 ${isOpen ? 'text-footer-text' : 'text-accent-navy'}`}
             strokeWidth={2.5}
           />
         </div>
@@ -24,7 +24,7 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
       <div
         className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96' : 'max-h-0'}`}
       >
-        <div className="px-6 sm:px-8 pb-5 sm:pb-6 text-sm sm:text-base text-text leading-relaxed border-t border-black/5 pt-5 sm:pt-6">
+        <div className="text-text border-t border-black/5 px-6 pt-5 pb-5 text-sm leading-relaxed sm:px-8 sm:pt-6 sm:pb-6 sm:text-base">
           {answer}
         </div>
       </div>
@@ -66,10 +66,10 @@ export function ManagementFAQ() {
     },
   ];
   return (
-    <section className="w-full bg-white py-16 sm:py-20 md:py-28 border-b border-black/5">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-accent-navy mb-3 sm:mb-4">
+    <section className="w-full border-b border-black/5 bg-white py-16 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="mb-12 text-center sm:mb-16">
+          <h2 className="font-heading text-accent-navy mb-3 text-3xl font-extrabold sm:mb-4 sm:text-4xl md:text-5xl">
             Často kladené otázky
           </h2>
         </div>
