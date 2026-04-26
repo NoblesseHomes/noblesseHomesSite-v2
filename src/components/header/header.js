@@ -71,29 +71,29 @@ function LanguageSwitcher() {
     <div ref={dropdownRef} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-8 w-16 flex items-center justify-between gap-2 px-2.5 rounded-lg border border-black/10 hover:border-black/20 bg-white hover:bg-accent-cream transition-all duration-200"
+        className="hover:bg-accent-cream flex h-8 w-16 items-center justify-between gap-2 rounded-lg border border-black/10 bg-white px-2.5 transition-all duration-200 hover:border-black/20"
         aria-label="Změnit jazyk"
       >
         <span className="flex items-center gap-1.5">
-          <span className="text-xs font-semibold text-text/80 leading-none">
+          <span className="text-text/80 text-xs leading-none font-semibold">
             {currentLang.short}
           </span>
         </span>
         <ChevronDownIcon
-          className={`w-3.5 h-3.5 text-text/50 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`text-text/50 h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           strokeWidth={2.5}
         />
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl border border-black/5 shadow-premium-lg overflow-hidden z-60">
+        <div className="shadow-premium-lg absolute top-full right-0 z-60 mt-2 w-48 overflow-hidden rounded-xl border border-black/5 bg-white">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => {
                 handleLanguage(lang.code);
               }}
-              className={`w-full grid grid-cols-[32px_1fr_12px] items-center gap-3 px-4 py-2.5 text-left transition-colors duration-150 cursor-pointer ${
+              className={`grid w-full cursor-pointer grid-cols-[32px_1fr_12px] items-center gap-3 px-4 py-2.5 text-left transition-colors duration-150 ${
                 currentLang.code === lang.code
                   ? 'bg-accent-navy/8 text-accent-navy'
                   : 'hover:bg-accent-cream text-text'
@@ -108,9 +108,9 @@ function LanguageSwitcher() {
                   className="h-full w-full object-cover"
                 />
               </span>
-              <span className="text-sm font-medium truncate whitespace-nowrap">{lang.label}</span>
+              <span className="truncate text-sm font-medium whitespace-nowrap">{lang.label}</span>
               <span
-                className={`w-1.5 h-1.5 rounded-full bg-accent-navy justify-self-end transition-opacity ${
+                className={`bg-accent-navy h-1.5 w-1.5 justify-self-end rounded-full transition-opacity ${
                   currentLang.code === lang.code ? 'opacity-100' : 'opacity-0'
                 }`}
               />
@@ -122,7 +122,35 @@ function LanguageSwitcher() {
   );
 }
 
+const navMenu = [
+  {
+    name: 'Správa',
+    href: '/sprava',
+    active: 'sprava',
+  },
+  {
+    name: 'Pronájem',
+    href: '/pronajem',
+    active: 'pronajem',
+  },
+  {
+    name: 'Spolupráce',
+    href: '/spoluprace',
+    active: 'spoluprace',
+  },
+  {
+    name: 'Kontakt',
+    href: '/kontakt',
+    active: 'kontakt',
+  },
+  {
+    name: 'O nás',
+    href: '/o-nas',
+    active: 'o-nas',
+  },
+];
 export default function Header() {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -135,12 +163,14 @@ export default function Header() {
       document.body.classList.remove('overflow-hidden');
     };
   }, [isMobileMenuOpen]);
+
+  console.log(pathname);
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-black/5 shadow-premium transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <header className="shadow-premium sticky top-0 z-50 w-full border-b border-black/5 bg-white/95 backdrop-blur-md transition-all duration-300">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           {/* Desktop: 3-column grid — logo | nav (centered) | actions */}
-          <div className="hidden lg:grid lg:grid-cols-[auto_1fr_auto] items-center h-20 gap-4">
+          <div className="hidden h-20 items-center gap-4 lg:grid lg:grid-cols-[auto_1fr_auto]">
             {/* Col 1: Logo */}
             <Link href="/" className="flex items-center">
               <Image
@@ -154,41 +184,54 @@ export default function Header() {
 
             {/* Col 2: Navigation — perfectly centered */}
             <nav className="flex items-center justify-center gap-5 xl:gap-7">
-              <Link
+              {/* <Link
                 href="/sprava"
-                className="text-text font-medium hover:text-accent-navy transition-colors duration-200 relative group whitespace-nowrap"
+                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
               >
                 Správa
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-navy transition-all duration-200 group-hover:w-full" />
+                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link
                 href="/pronajem"
-                className="text-text font-medium hover:text-accent-navy transition-colors duration-200 relative group whitespace-nowrap"
+                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
               >
                 Pronájem
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-navy transition-all duration-200 group-hover:w-full" />
+                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link
                 href="/spoluprace"
-                className="text-text font-medium hover:text-accent-navy transition-colors duration-200 relative group whitespace-nowrap"
+                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
               >
                 Spolupráce
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-navy transition-all duration-200 group-hover:w-full" />
+                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link
                 href="/#kontakt"
-                className="text-text font-medium hover:text-accent-navy transition-colors duration-200 relative group whitespace-nowrap"
+                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
               >
                 Kontakt
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-navy transition-all duration-200 group-hover:w-full" />
+                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link
                 href="/o-nas"
-                className="text-text font-medium hover:text-accent-navy transition-colors duration-200 relative group whitespace-nowrap"
+                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
               >
                 O nás
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-navy transition-all duration-200 group-hover:w-full" />
-              </Link>
+                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
+              </Link> */}
+
+              {navMenu.map((item, key) => (
+                <Link
+                  key={key}
+                  href={item.href}
+                  className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
+                >
+                  {item.name}
+                  <span
+                    className={`bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full ${pathname.includes(item.active) && 'w-full'}`}
+                  />
+                </Link>
+              ))}
             </nav>
 
             {/* Col 3: Language */}
@@ -198,7 +241,7 @@ export default function Header() {
           </div>
 
           {/* Mobile: simple flex — logo + language + burger */}
-          <div className="flex lg:hidden items-center justify-between h-16">
+          <div className="flex h-16 items-center justify-between lg:hidden">
             <Link href="/" className="flex items-center">
               <Image
                 src={logo}
@@ -215,7 +258,7 @@ export default function Header() {
                 className="text-accent-navy p-2"
                 aria-label="Open menu"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -234,15 +277,15 @@ export default function Header() {
         <>
           {/* Overlay */}
           <div
-            className="fixed inset-0 bg-accent-navy/50 backdrop-blur-sm z-50 lg:hidden"
+            className="bg-accent-navy/50 fixed inset-0 z-50 backdrop-blur-sm lg:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
           />
 
           {/* Drawer Panel */}
-          <div className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white z-50 shadow-premium-lg lg:hidden overflow-y-auto">
-            <div className="flex flex-col h-full">
+          <div className="shadow-premium-lg fixed top-0 right-0 bottom-0 z-50 w-80 max-w-[85vw] overflow-y-auto bg-white lg:hidden">
+            <div className="flex h-full flex-col">
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-black/5 bg-accent-cream">
+              <div className="bg-accent-cream flex items-center justify-between border-b border-black/5 p-6">
                 <div className="flex items-center gap-3">
                   <Image
                     src={logo}
@@ -254,10 +297,10 @@ export default function Header() {
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 hover:bg-accent-navy/8 rounded-lg transition-colors"
+                  className="hover:bg-accent-navy/8 rounded-lg p-2 transition-colors"
                   aria-label="Close menu"
                 >
-                  <XIcon className="w-6 h-6 text-accent-navy" strokeWidth={2.5} />
+                  <XIcon className="text-accent-navy h-6 w-6" strokeWidth={2.5} />
                 </button>
               </div>
 
@@ -267,57 +310,59 @@ export default function Header() {
                   <Link
                     href="/sprava"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-4 px-4 rounded-xl hover:bg-accent-cream transition-colors border border-transparent hover:border-black/5"
+                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
                   >
-                    <div className="font-bold text-lg text-accent-navy mb-1">Správa</div>
-                    <div className="text-sm text-text/60">Kompletní správa nemovitostí</div>
+                    <div className="text-accent-navy mb-1 text-lg font-bold">Správa</div>
+                    <div className="text-text/60 text-sm">Kompletní správa nemovitostí</div>
                   </Link>
 
                   <Link
                     href="/pronajem"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-4 px-4 rounded-xl hover:bg-accent-cream transition-colors border border-transparent hover:border-black/5"
+                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
                   >
-                    <div className="font-bold text-lg text-accent-navy mb-1">Pronájem</div>
-                    <div className="text-sm text-text/60">Najdeme spolehlivého nájemníka</div>
+                    <div className="text-accent-navy mb-1 text-lg font-bold">Pronájem</div>
+                    <div className="text-text/60 text-sm">Najdeme spolehlivého nájemníka</div>
                   </Link>
 
                   <Link
                     href="/spoluprace"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-4 px-4 rounded-xl hover:bg-accent-cream transition-colors border border-transparent hover:border-black/5"
+                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
                   >
-                    <div className="font-bold text-lg text-accent-navy mb-1">Spolupráce</div>
-                    <div className="text-sm text-text/60">Předejte klienta s důvěrou</div>
+                    <div className="text-accent-navy mb-1 text-lg font-bold">Spolupráce</div>
+                    <div className="text-text/60 text-sm">Předejte klienta s důvěrou</div>
                   </Link>
 
                   <Link
                     href="/#kontakt"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-4 px-4 rounded-xl hover:bg-accent-cream transition-colors border border-transparent hover:border-black/5"
+                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
                   >
-                    <div className="font-bold text-lg text-accent-navy mb-1">Kontakt</div>
-                    <div className="text-sm text-text/60">Ozvěte se nám a domluvte si konzultaci</div>
+                    <div className="text-accent-navy mb-1 text-lg font-bold">Kontakt</div>
+                    <div className="text-text/60 text-sm">
+                      Ozvěte se nám a domluvte si konzultaci
+                    </div>
                   </Link>
 
                   <Link
                     href="/o-nas"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-4 px-4 rounded-xl hover:bg-accent-cream transition-colors border border-transparent hover:border-black/5"
+                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
                   >
-                    <div className="font-bold text-lg text-accent-navy mb-1">O nás</div>
-                    <div className="text-sm text-text/60">Kdo jsme a jak pracujeme</div>
+                    <div className="text-accent-navy mb-1 text-lg font-bold">O nás</div>
+                    <div className="text-text/60 text-sm">Kdo jsme a jak pracujeme</div>
                   </Link>
                 </div>
               </nav>
 
               {/* Fixed CTA at bottom */}
-              <div className="p-6 border-t border-black/5 bg-accent-cream">
+              <div className="bg-accent-cream border-t border-black/5 p-6">
                 <a
                   href="tel:+420123456789"
-                  className="flex items-center justify-center gap-2 w-full text-accent-navy font-bold text-center px-6 py-3.5 rounded-xl border-2 border-accent-navy/15 hover:border-accent-navy/30 hover:text-accent-navy transition-all duration-200 bg-white"
+                  className="text-accent-navy border-accent-navy/15 hover:border-accent-navy/30 hover:text-accent-navy flex w-full items-center justify-center gap-2 rounded-xl border-2 bg-white px-6 py-3.5 text-center font-bold transition-all duration-200"
                 >
-                  <PhoneIcon className="w-4.5 h-4.5" strokeWidth={2.5} />
+                  <PhoneIcon className="h-4.5 w-4.5" strokeWidth={2.5} />
                   +420 123 456 789
                 </a>
               </div>
