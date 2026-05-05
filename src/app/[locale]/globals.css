@@ -12,7 +12,7 @@
   --color-problem-bg: #fef2f2;
   --color-problem-accent: #f87171;
   --color-text-main: #f2f5fb;
-  --color-text-muted: #d8e0ee;
+  --color-text-muted: rgba(216, 224, 238, 0.6);
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -39,4 +39,3 @@ body {
 .icon-glow {
   filter: drop-shadow(0 2px 8px rgba(221, 153, 51, 0.15));
 }
-

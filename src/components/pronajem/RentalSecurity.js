@@ -65,12 +65,12 @@ export default function RentalSecurity() {
             <div className="absolute top-0 right-0 h-20 w-20 rounded-bl-full bg-white/5" />
             <div className="relative">
               <div className="mb-5 inline-flex rounded-xl border border-white/15 bg-white/10 p-3">
-                <CameraIcon className="text-text-main/60 h-7 w-7" strokeWidth={2.5} />
+                <CameraIcon className="text-text-muted h-7 w-7" strokeWidth={2.5} />
               </div>
               <h3 className="font-heading text-text-main mb-3 text-xl font-bold sm:text-2xl">
                 Předání s protokolem a fotodokumentací
               </h3>
-              <p className="text-text-main/60 text-sm leading-relaxed sm:text-base">
+              <p className="text-text-muted text-sm leading-relaxed sm:text-base">
                 Stav bytu při předání je kompletně zdokumentovaný. Fotografie a protokol chrání vás
                 v případě budoucích sporů.
               </p>

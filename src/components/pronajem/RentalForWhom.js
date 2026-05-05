@@ -39,7 +39,7 @@ export default function RentalForWhom() {
           <h2 className="font-heading text-text-main mb-3 text-3xl font-extrabold sm:mb-4 sm:text-4xl md:text-5xl">
             Pro koho je naše služba pronájmu ideální
           </h2>
-          <p className="text-text-main/60 mx-auto max-w-2xl text-lg sm:text-xl">
+          <p className="text-text-muted mx-auto max-w-2xl text-lg sm:text-xl">
             Pokud se poznáváte v některém z těchto bodů, jsme tu pro vás.
           </p>
         </div>
@@ -51,13 +51,13 @@ export default function RentalForWhom() {
               className={`flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 ${index === 4 ? 'sm:col-span-2 lg:col-span-1 lg:col-start-auto' : ''}`}
             >
               <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                <CheckCircleIcon className="text-text-main/60 h-4 w-4" strokeWidth={2.5} />
+                <CheckCircleIcon className="text-text-muted h-4 w-4" strokeWidth={2.5} />
               </div>
               <div>
                 <p className="font-heading text-text-main mb-1 text-base leading-snug font-bold sm:text-lg">
                   {item.title}
                 </p>
-                <p className="text-text-main/60 text-sm leading-relaxed">{item.description}</p>
+                <p className="text-text-muted text-sm leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}
