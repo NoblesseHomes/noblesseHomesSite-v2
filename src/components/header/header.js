@@ -127,31 +127,37 @@ const navMenu = [
     name: 'Správa',
     href: '/sprava',
     active: 'sprava',
+    description: 'Kompletní správa nemovitostí',
   },
   {
     name: 'Pronájem',
     href: '/pronajem',
     active: 'pronajem',
+    description: 'Najdeme spolehlivého nájemníka',
   },
   {
     name: 'Spolupráce',
     href: '/spoluprace',
     active: 'spoluprace',
+    description: 'Předejte klienta s důvěrou',
   },
   {
     name: 'Kontakt',
     href: '/kontakt',
     active: 'kontakt',
+    description: 'Ozvěte se nám a domluvte si konzultaci',
   },
   {
     name: 'O nás',
     href: '/o-nas',
     active: 'o-nas',
+    description: 'Kdo jsme a jak pracujeme',
   },
 ];
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.classList.add('overflow-hidden');
@@ -164,7 +170,6 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  console.log(pathname);
   return (
     <>
       <header className="shadow-premium sticky top-0 z-50 w-full border-b border-black/5 bg-white/95 backdrop-blur-md transition-all duration-300">
@@ -184,42 +189,6 @@ export default function Header() {
 
             {/* Col 2: Navigation — perfectly centered */}
             <nav className="flex items-center justify-center gap-5 xl:gap-7">
-              {/* <Link
-                href="/sprava"
-                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
-              >
-                Správa
-                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
-              </Link>
-              <Link
-                href="/pronajem"
-                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
-              >
-                Pronájem
-                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
-              </Link>
-              <Link
-                href="/spoluprace"
-                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
-              >
-                Spolupráce
-                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
-              </Link>
-              <Link
-                href="/#kontakt"
-                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
-              >
-                Kontakt
-                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
-              </Link>
-              <Link
-                href="/o-nas"
-                className="text-text hover:text-accent-navy group relative font-medium whitespace-nowrap transition-colors duration-200"
-              >
-                O nás
-                <span className="bg-accent-navy absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-200 group-hover:w-full" />
-              </Link> */}
-
               {navMenu.map((item, key) => (
                 <Link
                   key={key}
@@ -255,7 +224,7 @@ export default function Header() {
               <LanguageSwitcher />
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="text-accent-navy p-2"
+                className="text-accent-navy cursor-pointer p-2"
                 aria-label="Open menu"
               >
                 <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -297,7 +266,7 @@ export default function Header() {
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="hover:bg-accent-navy/8 rounded-lg p-2 transition-colors"
+                  className="hover:bg-accent-navy/8 cursor-pointer rounded-lg p-2 transition-colors"
                   aria-label="Close menu"
                 >
                   <XIcon className="text-accent-navy h-6 w-6" strokeWidth={2.5} />
@@ -307,52 +276,17 @@ export default function Header() {
               {/* Menu Items */}
               <nav className="flex-1 p-6">
                 <div className="space-y-2">
-                  <Link
-                    href="/sprava"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
-                  >
-                    <div className="text-accent-navy mb-1 text-lg font-bold">Správa</div>
-                    <div className="text-text/60 text-sm">Kompletní správa nemovitostí</div>
-                  </Link>
-
-                  <Link
-                    href="/pronajem"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
-                  >
-                    <div className="text-accent-navy mb-1 text-lg font-bold">Pronájem</div>
-                    <div className="text-text/60 text-sm">Najdeme spolehlivého nájemníka</div>
-                  </Link>
-
-                  <Link
-                    href="/spoluprace"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
-                  >
-                    <div className="text-accent-navy mb-1 text-lg font-bold">Spolupráce</div>
-                    <div className="text-text/60 text-sm">Předejte klienta s důvěrou</div>
-                  </Link>
-
-                  <Link
-                    href="/#kontakt"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
-                  >
-                    <div className="text-accent-navy mb-1 text-lg font-bold">Kontakt</div>
-                    <div className="text-text/60 text-sm">
-                      Ozvěte se nám a domluvte si konzultaci
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/o-nas"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
-                  >
-                    <div className="text-accent-navy mb-1 text-lg font-bold">O nás</div>
-                    <div className="text-text/60 text-sm">Kdo jsme a jak pracujeme</div>
-                  </Link>
+                  {navMenu.map((item, key) => (
+                    <Link
+                      key={key}
+                      href={item.href}
+                      className="hover:bg-accent-cream block rounded-xl border border-transparent px-4 py-4 transition-colors hover:border-black/5"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <div className="text-accent-navy mb-1 text-lg font-bold">{item.name}</div>
+                      <div className="text-text/60 text-sm">{item.description}</div>
+                    </Link>
+                  ))}
                 </div>
               </nav>
 
