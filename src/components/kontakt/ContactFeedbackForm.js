@@ -1,0 +1,143 @@
+'use client';
+
+import { useState, useRef } from 'react';
+
+export default function ContactFeedbackForm() {
+  const [message, setMessage] = useState('');
+  const formRef = useRef(null);
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    console.log(data);
+
+    // formRef?.current?.reset();
+  };
+
+  return (
+    <section className="bg-accent-cream w-full pb-16 sm:pb-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:p-8 md:p-10">
+          <div className="mb-8">
+            <h2 className="text-accent-navy text-2xl font-extrabold sm:text-3xl">
+              Kontaktní formulář
+            </h2>
+            <p className="text-text mt-3 text-sm leading-relaxed sm:text-base">
+              Nechte nám na sebe kontakt a stručně popište váš požadavek. Ozveme se vám co nejdříve.
+            </p>
+          </div>
+
+          <form ref={formRef} className="space-y-5" onSubmit={formSubmit}>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                {/* <label htmlFor="firstName" className="text-accent-navy text-sm font-semibold">
+                  Jméno
+                </label> */}
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  autoComplete="given-name"
+                  className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
+                  placeholder="Zadejte jméno"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                {/* <label htmlFor="lastName" className="text-accent-navy text-sm font-semibold">
+                  Příjmení
+                </label> */}
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  autoComplete="family-name"
+                  className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
+                  placeholder="Zadejte příjmení"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                {/* <label htmlFor="email" className="text-accent-navy text-sm font-semibold">
+                  E-mail
+                </label> */}
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
+                  placeholder="example@mail.com"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                {/* <label htmlFor="phone" className="text-accent-navy text-sm font-semibold">
+                  Telefon
+                </label> */}
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
+                  placeholder="+420 ..."
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              {/* <label htmlFor="subject" className="text-accent-navy text-sm font-semibold">
+                Předmět
+              </label> */}
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
+                placeholder="Doplním sám"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              {/* <label htmlFor="message" className="text-accent-navy text-sm font-semibold">
+                Stručný popis
+              </label> */}
+              <div className="relative">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  maxLength={500}
+                  value={message}
+                  onChange={(event) => setMessage(event.target.value)}
+                  className="text-text placeholder:text-text/55 focus:border-text min-h-32 w-full resize-y rounded-xl border border-black/15 bg-white px-4 py-3 pb-9 text-sm transition-colors duration-200 outline-none sm:text-base"
+                  placeholder="Popište svůj požadavek ve 2-3 větách"
+                />
+                <span className="text-text/60 pointer-events-none absolute right-4 bottom-4 text-xs sm:text-sm">
+                  {message.length}/500
+                </span>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="bg-accent-navy text-text-main hover:bg-accent-navy/90 w-full cursor-pointer rounded-xl px-6 py-3.5 text-sm font-semibold transition-colors duration-200 sm:w-auto sm:min-w-56 sm:text-base"
+            >
+              Odeslat
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -71,7 +71,10 @@ export default function ContactSection() {
       <section className="bg-accent-cream w-full">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 md:items-center md:gap-12 md:py-20">
           <div className="rounded-3xl border border-black/8 bg-white p-6 sm:p-8">
-            <h2 className="text-accent-navy text-2xl font-extrabold sm:text-3xl">NoblesseHomes</h2>
+            <h2 className="text-accent-navy text-2xl font-extrabold sm:text-3xl">
+              Noblesse Culture, s.r.o.
+            </h2>
+            <p className="text-text mt-2 text-xs md:text-sm">IČO: 08919607 </p>
             <p className="text-text mt-4 text-xs leading-relaxed sm:text-sm">
               Realitní partner s individuálním přístupem. Pomůžeme s pronájmem i správou nemovitostí
               v Praze a okolí.
