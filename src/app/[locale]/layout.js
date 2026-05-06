@@ -31,7 +31,7 @@ export default async function RootLayout({ children, params }) {
 
   return (
     <html lang={locale} className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
           <Header />
           <main>{children}</main>
