@@ -1,5 +1,7 @@
 import { Link } from '@/i18n/navigation';
-import { MailIcon, PhoneIcon, MapPinIcon, HomeIcon } from 'lucide-react';
+import Image from 'next/image';
+import { MailIcon, PhoneIcon, MapPinIcon } from 'lucide-react';
+import Home from '@/asset/footer/home.svg';
 
 const dataYear = new Date().getFullYear();
 
@@ -26,9 +28,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-3 flex items-center gap-2.5">
-              <div className="rounded-xl border border-white/15 bg-white/10 p-2">
-                <HomeIcon className="text-text-main h-5 w-5" strokeWidth={2.5} />
-              </div>
+              <Image
+                src={Home}
+                width={48}
+                height={48}
+                alt="NoblesseHomes icon"
+                className="h-9 w-12 object-contain"
+              />
               <span className="text-text-main text-lg font-bold">NoblesseHomes</span>
             </div>
             <p className="text-text-muted text-sm leading-relaxed">
@@ -133,4 +139,3 @@ export default function Footer() {
     </footer>
   );
 }
-
