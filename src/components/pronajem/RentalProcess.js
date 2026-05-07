@@ -87,7 +87,7 @@ export default function RentalProcess() {
         </div>
       </section>
 
-      <ManagementModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ManagementModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} type="pronajem" />
     </>
   );
 }

@@ -1,40 +1,20 @@
-'use client';
-
-import React, { useState } from 'react';
-// import { ManagementModal } from './ManagementModal';
 export function ManagementHero() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
-      <section className="relative w-full bg-accent-cream overflow-hidden border-b border-black/5">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-40">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-accent-navy mb-6 sm:mb-8 leading-[1.15]">
+      <section className="bg-accent-cream relative w-full overflow-hidden border-b border-black/5">
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 md:py-40">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="font-heading text-accent-navy mb-6 text-4xl leading-[1.15] font-extrabold sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
               Správa nemovitosti — vy inkasujete, my řešíme provoz
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl text-text mb-10 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-4">
+            <p className="text-text mx-auto mb-10 max-w-3xl px-4 text-lg leading-relaxed sm:mb-12 sm:text-xl md:text-2xl">
               Přebíráme každodenní operativu pronajatého bytu — komunikaci s nájemníkem, platby,
               opravy, kontroly a reporting. <br className="hidden sm:block" />
-              <span className="font-semibold text-accent-navy">
+              <span className="text-accent-navy font-semibold">
                 Vy máte přehled, ale nemusíte nic řešit.
               </span>
             </p>
-
-            {/* <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center px-4">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-primary text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl hover:bg-primary-dark transition-all duration-300 shadow-premium-lg text-center"
-              >
-                Chci předat správu
-              </button>
-              <a
-                href="tel:+420123456789"
-                className="bg-white text-accent-navy font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl hover:bg-accent-cream transition-all duration-300 border-2 border-accent-navy/15 hover:border-accent-navy/30 shadow-premium hover:shadow-premium-lg text-center"
-              >
-                Nezávazná konzultace
-              </a>
-            </div> */}
           </div>
         </div>
       </section>

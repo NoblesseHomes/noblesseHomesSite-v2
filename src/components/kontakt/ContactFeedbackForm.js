@@ -161,9 +161,9 @@ export default function ContactFeedbackForm() {
                 <option value="" disabled>
                   Vyberte předmět
                 </option>
-                <option value="pronajem">Pronájem</option>
                 <option value="sprava">Správa nemovitosti</option>
-                <option value="prodej">Prodej nemovitosti</option>
+                <option value="pronajem">Pronájem</option>
+                <option value="spoluprace">Spoluprace</option>
                 <option value="jine">Jiné</option>
               </select>
             </div>

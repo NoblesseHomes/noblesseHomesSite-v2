@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { XIcon, CheckCircleIcon } from 'lucide-react';
 
-export function ManagementModal({ isOpen, onClose }) {
+export function ManagementModal({ isOpen, onClose, type = '' }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    propertyType: '',
+    propertyType: type != '' ? type : '',
     message: '',
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Очистка при размонтировании компонента
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]); // Добавляем isOpen в зависимости
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -133,7 +147,7 @@ export function ManagementModal({ isOpen, onClose }) {
                     htmlFor="propertyType"
                     className="text-accent-navy/80 mb-2 block text-sm font-semibold"
                   >
-                    Typ nemovitosti *
+                    Typ poptávky *
                   </label>
                   <select
                     id="propertyType"
@@ -147,10 +161,12 @@ export function ManagementModal({ isOpen, onClose }) {
                     }
                     className={`${inputClasses} cursor-pointer`}
                   >
-                    <option value="">Vyberte typ</option>
-                    <option value="byt">Byt</option>
-                    <option value="dum">Dům</option>
-                    <option value="komercni">Komerční prostor</option>
+                    <option value="" disabled>
+                      Vyberte typ
+                    </option>
+                    <option value="sprava">Správa nemovitosti</option>
+                    <option value="pronajem">Pronajem</option>
+                    <option value="spoluprace">Spoluprace</option>
                     <option value="jine">Jiné</option>
                   </select>
                 </div>
