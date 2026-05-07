@@ -37,13 +37,13 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-              <a
-                href="tel:+420123456789"
+              <Link
+                href="/kontakt"
                 className="bg-primary hover:bg-primary-dark shadow-premium-lg text-text-main inline-flex items-center justify-center gap-2.5 rounded-xl px-7 py-3.5 text-base font-bold transition-all duration-300 hover:shadow-[0_12px_48px_rgba(221,153,51,0.3)]"
               >
                 <PhoneIcon className="h-5 w-5" strokeWidth={2.5} />
                 Kontaktovat nás
-              </a>
+              </Link>
               <Link
                 href="#sluzby"
                 className="bg-text-main/12 text-text-main border-text-main/25 hover:bg-text-main/20 inline-flex items-center justify-center gap-2 rounded-xl border px-7 py-3.5 text-base font-bold backdrop-blur-sm transition-all duration-300"
