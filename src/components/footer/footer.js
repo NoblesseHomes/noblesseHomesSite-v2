@@ -35,7 +35,7 @@ export default function Footer() {
                 alt="NoblesseHomes icon"
                 className="h-9 w-12 object-contain"
               />
-              <span className="text-text-main text-lg font-bold">NoblesseHomes</span>
+              <span className="text-text-main text-lg font-medium">NoblesseHomes</span>
             </div>
             <p className="text-text-muted text-sm leading-relaxed">
               Profesionální správa a pronájem nemovitostí v Praze a okolí.
