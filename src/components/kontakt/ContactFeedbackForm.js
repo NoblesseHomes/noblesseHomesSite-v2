@@ -16,23 +16,14 @@ export default function ContactFeedbackForm() {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    // try {
-    //   setLoading(true);
-
-    //   await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    //   console.log(data);
-    //   error();
-    // } catch {
-    // } finally {
-    //   setLoading(false);
-    // }
-
+    // Контроллер нужен, чтобы мы могли вручную отменить fetch по таймауту.
     const controller = new AbortController();
+    // Если сервер не ответил за 15с, прерываем запрос (иначе UI может "висеть").
     const timeout = setTimeout(() => controller.abort(), 15000);
 
     try {
       setLoading(true);
+      // Отправляем форму на API роут.
       const request = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -42,8 +33,13 @@ export default function ContactFeedbackForm() {
         signal: controller.signal,
       });
 
+      // Пытаемся прочитать JSON-ответ.
+      // Если тело пустое/битое, не падаем с ошибкой — получаем null.
       const response = await request.json().catch(() => null);
 
+      // Ошибкой считаем оба случая:
+      // 1) HTTP-статус неуспешный (request.ok === false)
+      // 2) API явно вернул success: false
       if (!request.ok || !response?.success) {
         showError(response?.message || 'Nepodařilo se odeslat formulář.');
         return;
@@ -54,12 +50,16 @@ export default function ContactFeedbackForm() {
       showSuccess(response.message || 'Formulář byl odeslán.');
     } catch (caughtError) {
       console.error(caughtError);
+      // AbortError возникает, когда мы сами отменили запрос по таймауту через controller.abort().
+      // Это не "падение" приложения, а контролируемый сценарий долгого ответа сервера.
       if (caughtError.name === 'AbortError') {
         showError('Požadavek vypršel. Zkuste to prosím znovu.');
         return;
       }
+      // Любая другая ошибка: сеть, CORS, проблемы соединения и т.д.
       showError('Chyba sítě. Zkontrolujte připojení a zkuste to znovu.');
     } finally {
+      // Всегда чистим таймер, чтобы не осталось "висячих" setTimeout.
       clearTimeout(timeout);
       setLoading(false);
     }
