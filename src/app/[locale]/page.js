@@ -11,8 +11,9 @@ export async function generateMetadata({ params }) {
 
   return createMetadata({
     locale,
-    title: 'Home Page',
-    description: 'NopblesseHomes',
+    title: 'Správa a pronájem nemovitostí v Praze | NoblesseHomes',
+    description:
+      'NoblesseHomes zajišťuje profesionální správu a pronájem bytů v Praze. Najdeme spolehlivého nájemníka, vyřešíme smlouvy, předání i každodenní péči o nemovitost.',
   });
 }
 

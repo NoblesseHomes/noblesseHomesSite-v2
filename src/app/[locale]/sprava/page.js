@@ -11,8 +11,9 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
 
   return createMetadata({
-    title: 'Sprava',
-    description: 'Sprava',
+    title: 'Správa nemovitostí v Praze bez starostí | NoblesseHomes',
+    description:
+      'Kompletní správa bytu a investiční nemovitosti v Praze: komunikace s nájemníky, řešení oprav, administrativa, reporting i dlouhodobá péče o váš majetek.',
     locale,
     path: '/sprava',
   });
