@@ -9,6 +9,8 @@ import './globals.css';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
 
+import ToastProvider from '@/components/toastProvider/provider';
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -28,6 +30,7 @@ export default async function RootLayout({ children, params }) {
     <html lang={locale} className={`${inter.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
+          <ToastProvider />
           <Header />
           <main>{children}</main>
           <Footer />

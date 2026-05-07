@@ -1,17 +1,70 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import toast from 'react-hot-toast';
 
 export default function ContactFeedbackForm() {
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   const formRef = useRef(null);
 
-  const formSubmit = (e) => {
+  const showError = (value) => toast.error(value);
+  const showSuccess = (value) => toast.success(value);
+
+  const formSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    console.log(data);
+    // try {
+    //   setLoading(true);
+
+    //   await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    //   console.log(data);
+    //   error();
+    // } catch {
+    // } finally {
+    //   setLoading(false);
+    // }
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+
+    try {
+      setLoading(true);
+      const request = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        signal: controller.signal,
+      });
+
+      const response = await request.json().catch(() => null);
+
+      if (!request.ok || !response?.success) {
+        showError(response?.message || 'Nepodařilo se odeslat formulář.');
+        return;
+      }
+
+      formRef?.current?.reset();
+      setMessage('');
+      showSuccess(response.message || 'Formulář byl odeslán.');
+    } catch (caughtError) {
+      console.error(caughtError);
+      if (caughtError.name === 'AbortError') {
+        showError('Požadavek vypršel. Zkuste to prosím znovu.');
+        return;
+      }
+      showError('Chyba sítě. Zkontrolujte připojení a zkuste to znovu.');
+    } finally {
+      clearTimeout(timeout);
+      setLoading(false);
+    }
+
+    // console.log(data);
 
     // formRef?.current?.reset();
   };
@@ -36,8 +89,8 @@ export default function ContactFeedbackForm() {
                   Jméno
                 </label> */}
                 <input
-                  id="firstName"
-                  name="firstName"
+                  id="name"
+                  name="name"
                   type="text"
                   autoComplete="given-name"
                   className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
@@ -51,8 +104,8 @@ export default function ContactFeedbackForm() {
                   Příjmení
                 </label> */}
                 <input
-                  id="lastName"
-                  name="lastName"
+                  id="surname"
+                  name="surname"
                   type="text"
                   autoComplete="family-name"
                   className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
@@ -98,14 +151,21 @@ export default function ContactFeedbackForm() {
               {/* <label htmlFor="subject" className="text-accent-navy text-sm font-semibold">
                 Předmět
               </label> */}
-              <input
-                id="subject"
-                name="subject"
-                type="text"
+              <select
+                id="option"
+                name="option"
                 className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
-                placeholder="Doplním sám"
+                defaultValue=""
                 required
-              />
+              >
+                <option value="" disabled>
+                  Vyberte předmět
+                </option>
+                <option value="pronajem">Pronájem</option>
+                <option value="sprava">Správa nemovitosti</option>
+                <option value="prodej">Prodej nemovitosti</option>
+                <option value="jine">Jiné</option>
+              </select>
             </div>
 
             <div className="space-y-2">
@@ -114,8 +174,8 @@ export default function ContactFeedbackForm() {
               </label> */}
               <div className="relative">
                 <textarea
-                  id="message"
-                  name="message"
+                  id="description"
+                  name="description"
                   rows={5}
                   maxLength={500}
                   value={message}
@@ -132,8 +192,10 @@ export default function ContactFeedbackForm() {
             <button
               type="submit"
               className="bg-accent-navy text-text-main hover:bg-accent-navy/90 w-full cursor-pointer rounded-xl px-6 py-3.5 text-sm font-semibold transition-colors duration-200 sm:w-auto sm:min-w-56 sm:text-base"
+              disabled={loading}
             >
-              Odeslat
+              {/* Odeslat */}
+              {loading ? 'Odesílám...' : 'Odeslat'}
             </button>
           </form>
         </div>
