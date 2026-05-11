@@ -4,17 +4,23 @@ import sendMail from '@/lib/mailer';
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { name, surname, email, phone, option, description } = body || {};
+    const { name, surname, email, phone, propertyType, description } = body || {};
     const cleanData = {
       name: String(name || '').trim(),
       surname: String(surname || '').trim(),
       email: String(email || '').trim(),
       phone: String(phone || '').trim(),
-      option: String(option || '').trim(),
+      propertyType: String(propertyType || '').trim(),
       description: String(description || '').trim(),
     };
 
-    if (!cleanData.name || !cleanData.surname || !cleanData.email || !cleanData.phone || !cleanData.option) {
+    if (
+      !cleanData.name ||
+      !cleanData.surname ||
+      !cleanData.email ||
+      !cleanData.phone ||
+      !cleanData.propertyType
+    ) {
       return NextResponse.json(
         {
           success: false,
@@ -45,7 +51,7 @@ export async function POST(req) {
         <p><strong>Příjmení:</strong> ${cleanData.surname}</p>
         <p><strong>E-mail:</strong> ${cleanData.email}</p>
         <p><strong>Telefon:</strong> ${cleanData.phone}</p>
-        <p><strong>Předmět:</strong> ${cleanData.option}</p>
+        <p><strong>Předmět:</strong> ${cleanData.propertyType}</p>
         <p><strong>Popis:</strong><br/>${cleanData.description || '-'}</p>
       `,
     });

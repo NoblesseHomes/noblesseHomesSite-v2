@@ -152,8 +152,8 @@ export default function ContactFeedbackForm() {
                 Předmět
               </label> */}
               <select
-                id="option"
-                name="option"
+                id="propertyType"
+                name="propertyType"
                 className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
                 defaultValue=""
                 required

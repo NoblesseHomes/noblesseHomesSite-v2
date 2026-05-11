@@ -27,7 +27,11 @@ export default async function RootLayout({ children, params }) {
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={`${inter.variable} h-full antialiased`}>
+    <html
+      lang={locale}
+      className={`${inter.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+    >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
           <ToastProvider />

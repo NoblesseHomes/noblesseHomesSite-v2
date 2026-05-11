@@ -1,13 +1,16 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { XIcon, CheckCircleIcon } from 'lucide-react';
 
 export function ManagementModal({ isOpen, onClose, type = '' }) {
   const [formData, setFormData] = useState({
     name: '',
+    surname: 'none',
     email: '',
     phone: '',
     propertyType: type != '' ? type : '',
-    message: '',
+    description: '',
   });
 
   useEffect(() => {
@@ -23,14 +26,59 @@ export function ManagementModal({ isOpen, onClose, type = '' }) {
     };
   }, [isOpen]); // Добавляем isOpen в зависимости
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState({
+    isError: false,
+    message: '',
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log('Form submitted:', formData);
+  //   setIsSubmitted(true);
+  //   setTimeout(() => {
+  //     onClose();
+  //     setIsSubmitted(false);
+  //     setFormData({
+  //       name: '',
+  //       email: '',
+  //       phone: '',
+  //       propertyType: '',
+  //       message: '',
+  //     });
+  //   }, 2000);
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      onClose();
-      setIsSubmitted(false);
+    const controller = new AbortController();
+
+    const timeout = setTimeout(() => controller.abort(), 15000);
+
+    try {
+      setLoading(true);
+      setError({ isError: false, message: '' });
+      const request = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        signal: controller.signal,
+      });
+
+      const response = await request.json().catch(() => null);
+
+      if (!request.ok || !response?.success) {
+        setError({
+          isError: true,
+          message: response?.message || 'Nepodařilo se odeslat formulář.',
+        });
+        return;
+      }
+
+      setIsSubmitted(true);
+
       setFormData({
         name: '',
         email: '',
@@ -38,7 +86,26 @@ export function ManagementModal({ isOpen, onClose, type = '' }) {
         propertyType: '',
         message: '',
       });
-    }, 2000);
+    } catch (caughtError) {
+      console.error(caughtError);
+      // AbortError возникает, когда мы сами отменили запрос по таймауту через controller.abort().
+      // Это не "падение" приложения, а контролируемый сценарий долгого ответа сервера.
+      if (caughtError.name === 'AbortError') {
+        setError({
+          isError: true,
+          message: 'Požadavek vypršel. Zkuste to prosím znovu.',
+        });
+        return;
+      }
+      // Любая другая ошибка: сеть, CORS, проблемы соединения и т.д.
+      setError({
+        isError: true,
+        message: 'Chyba sítě. Zkontrolujte připojení a zkuste to znovu.',
+      });
+    } finally {
+      clearTimeout(timeout);
+      setLoading(false);
+    }
   };
   if (!isOpen) return null;
   const inputClasses =
@@ -128,7 +195,7 @@ export function ManagementModal({ isOpen, onClose, type = '' }) {
                   <input
                     type="tel"
                     id="phone"
-                    required
+                    // required
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({
@@ -174,18 +241,18 @@ export function ManagementModal({ isOpen, onClose, type = '' }) {
                 {/* Message */}
                 <div>
                   <label
-                    htmlFor="message"
+                    htmlFor="description"
                     className="text-accent-navy/80 mb-2 block text-sm font-semibold"
                   >
                     Poznámka (nepovinné)
                   </label>
                   <textarea
-                    id="message"
+                    id="description"
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({
                         ...formData,
-                        message: e.target.value,
+                        description: e.target.value,
                       })
                     }
                     placeholder="Napište nám více o vaší nemovitosti..."
@@ -195,12 +262,19 @@ export function ManagementModal({ isOpen, onClose, type = '' }) {
                 </div>
               </div>
 
+              {error.isError && (
+                <div className="mt-2 flex">
+                  <p className="text-sm text-red-500 sm:text-base">{error.message}</p>
+                </div>
+              )}
+
               {/* Submit Button — gold stays here as CTA */}
               <button
                 type="submit"
                 className="bg-primary hover:bg-primary-dark shadow-premium-lg mt-6 w-full cursor-pointer rounded-2xl px-8 py-4 text-lg font-bold text-white transition-all duration-300"
               >
-                Odeslat poptávku
+                {/* Odeslat poptávku */}
+                {loading ? 'Odesilam...' : 'Odeslat poptávku'}
               </button>
 
               <p className="text-text/40 mt-4 text-center text-xs">
