@@ -11,6 +11,8 @@ import Footer from '@/components/footer/footer';
 
 import ToastProvider from '@/components/toastProvider/provider';
 
+import ConsentProvider from '../providers/consent-provider';
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -34,10 +36,12 @@ export default async function RootLayout({ children, params }) {
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
-          <ToastProvider />
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <ConsentProvider>
+            <ToastProvider />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </ConsentProvider>
         </NextIntlClientProvider>
       </body>
     </html>
