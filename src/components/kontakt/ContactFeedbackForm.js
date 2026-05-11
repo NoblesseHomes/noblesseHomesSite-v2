@@ -70,7 +70,7 @@ export default function ContactFeedbackForm() {
   };
 
   return (
-    <section className="bg-accent-cream w-full pb-16 sm:pb-24">
+    <section className="bg-accent-cream w-full pb-16 sm:pb-24" id="kontakt">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:p-8 md:p-10">
           <div className="mb-8">
@@ -94,7 +94,7 @@ export default function ContactFeedbackForm() {
                   type="text"
                   autoComplete="given-name"
                   className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
-                  placeholder="Zadejte jméno"
+                  placeholder="Zadejte jméno * "
                   required
                 />
               </div>
@@ -109,7 +109,7 @@ export default function ContactFeedbackForm() {
                   type="text"
                   autoComplete="family-name"
                   className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
-                  placeholder="Zadejte příjmení"
+                  placeholder="Zadejte příjmení *"
                   required
                 />
               </div>
@@ -126,7 +126,7 @@ export default function ContactFeedbackForm() {
                   type="email"
                   autoComplete="email"
                   className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
-                  placeholder="example@mail.com"
+                  placeholder="example@mail.com *"
                   required
                 />
               </div>
@@ -141,7 +141,7 @@ export default function ContactFeedbackForm() {
                   type="tel"
                   autoComplete="tel"
                   className="text-text placeholder:text-text/55 focus:border-text w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm transition-colors duration-200 outline-none sm:text-base"
-                  placeholder="+420 ..."
+                  placeholder="+420 ... *"
                   required
                 />
               </div>
@@ -159,7 +159,7 @@ export default function ContactFeedbackForm() {
                 required
               >
                 <option value="" disabled>
-                  Vyberte předmět
+                  Vyberte předmět *
                 </option>
                 <option value="sprava">Správa nemovitosti</option>
                 <option value="pronajem">Pronájem</option>
@@ -187,6 +187,7 @@ export default function ContactFeedbackForm() {
                   {message.length}/500
                 </span>
               </div>
+              <p className="text-text/50 mt-2 text-xs">Pole označená * jsou povinná</p>
             </div>
 
             <button

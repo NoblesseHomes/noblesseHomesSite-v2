@@ -14,12 +14,12 @@ export default function Footer() {
             <p className="text-text-main max-w-3xl text-2xl leading-snug font-semibold sm:text-3xl">
               Hledáte realitní kancelář nebo správu nemovitosti, které můžete opravdu důvěřovat?
             </p>
-            <a
-              href="tel:+420123456789"
+            <Link
+              href="/kontakt#kontakt"
               className="bg-primary hover:bg-primary-dark inline-flex min-w-56 items-center justify-center rounded-xl px-8 py-4 text-base font-bold whitespace-nowrap text-white transition-colors duration-200"
             >
               Spojte se s námi
-            </a>
+            </Link>
           </div>
         </div>
       </div>
